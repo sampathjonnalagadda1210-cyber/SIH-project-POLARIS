@@ -100,7 +100,7 @@ async function runAnalysis() {
   const text = currentInputText();
   if (!text) { toast("Paste, upload, snap or speak a specification first."); return; }
   const btn = $("analyzeBtn");
-  btn.disabled = true; btn.textContent = "⏳ Analyzing…";
+  btn.disabled = true; btn.textContent = "Analyzing…";
   try {
     LAST = await api("/api/recommend", { text });
     renderAll(LAST);
@@ -111,7 +111,7 @@ async function runAnalysis() {
   } catch (e) {
     toast("Analysis failed: " + e.message);
   } finally {
-    btn.disabled = false; btn.textContent = "⚡ Analyze Specification";
+    btn.disabled = false; btn.textContent = "Analyze Specification";
   }
 }
 
@@ -128,7 +128,7 @@ function renderHealth(a) {
   const s = a.spec_health;
   const C = 326.7;
   $("scoreRing").style.strokeDashoffset = C * (1 - s.score / 100);
-  $("scoreRing").style.stroke = s.score >= 85 ? "#2fd28a" : s.score >= 60 ? "#ffb454" : "#ff6b6b";
+  $("scoreRing").style.stroke = s.score >= 85 ? "#4cc38a" : s.score >= 60 ? "#d9a441" : "#d4553a";
   animateNum($("scoreNum"), s.score);
   $("healthVerdict").textContent = s.verdict;
   const d = s.detail;
@@ -471,7 +471,7 @@ function ocrFile(file) {
   let VOICE_LANG = "hi-IN";
   if (!SR) {
     btn.disabled = true;
-    btn.textContent = "🎙️ Not supported in this browser";
+    btn.textContent = "Not supported in this browser";
     $("voiceStatus").textContent = "Voice needs Chrome or Edge (Web Speech API). Other input modes work everywhere.";
     return;
   }
@@ -482,13 +482,13 @@ function ocrFile(file) {
     rec.lang = VOICE_LANG;
     rec.interimResults = false;
     rec.continuous = true;
-    rec.onstart = () => { listening = true; btn.textContent = "🔴 Listening… (click to stop)"; };
+    rec.onstart = () => { listening = true; btn.textContent = "● Listening… (click to stop)"; };
     rec.onerror = (ev) => {
       $("voiceStatus").textContent = "Mic error: " + ev.error +
         (ev.error === "not-allowed" ? " — allow microphone access and retry." : ".");
-      listening = false; btn.textContent = "🎙️ Start listening";
+      listening = false; btn.textContent = "Start listening";
     };
-    rec.onend = () => { listening = false; btn.textContent = "🎙️ Start listening"; };
+    rec.onend = () => { listening = false; btn.textContent = "Start listening"; };
     rec.onresult = (ev) => {
       for (let i = ev.resultIndex; i < ev.results.length; i++) {
         if (ev.results[i].isFinal) {
@@ -640,11 +640,11 @@ const Graph = (() => {
   let drag = null, hovered = null;
 
   const COLORS = {
-    "Product / Specification": "#6c8dbd",
-    "Test Method": "#2fd28a",
-    "Terminology": "#b18cff",
-    "Safety": "#ff6b6b",
-    "Code of Practice / Installation": "#ffb454",
+    "Product / Specification": "#6f87ad",
+    "Test Method": "#46b581",
+    "Terminology": "#8f7fd0",
+    "Safety": "#d4553a",
+    "Code of Practice / Installation": "#c9a35c",
   };
 
   function resize() {
@@ -735,7 +735,7 @@ const Graph = (() => {
       ctx.beginPath();
       ctx.moveTo(a.x, a.y);
       ctx.quadraticCurveTo(cx, cy, b.x, b.y);
-      ctx.strokeStyle = hot ? "rgba(77,163,255,.9)" : "rgba(108,141,189,.35)";
+      ctx.strokeStyle = hot ? "rgba(201,163,92,.9)" : "rgba(157,185,232,.28)";
       ctx.lineWidth = hot ? 2.2 : 1.2;
       ctx.stroke();
       const ang = Math.atan2(b.y - cy, b.x - cx);
@@ -746,7 +746,7 @@ const Graph = (() => {
       ctx.lineTo(ax - 8 * Math.cos(ang - 0.4), ay - 8 * Math.sin(ang - 0.4));
       ctx.lineTo(ax - 8 * Math.cos(ang + 0.4), ay - 8 * Math.sin(ang + 0.4));
       ctx.closePath();
-      ctx.fillStyle = "rgba(108,141,189,.7)";
+      ctx.fillStyle = "rgba(157,185,232,.55)";
       ctx.fill();
     });
     nodes.forEach((n) => {
@@ -754,24 +754,24 @@ const Graph = (() => {
       const color = COLORS[n.kind] || "#6c8dbd";
       ctx.beginPath();
       ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
-      ctx.fillStyle = n.depth === 0 ? "#4da3ff" : color;
+      ctx.fillStyle = n.depth === 0 ? "#9db9e8" : color;
       ctx.globalAlpha = hovered && hovered !== n ? 0.35 : 1;
       ctx.fill();
       if (n.cert_mandatory) {
         ctx.beginPath();
         ctx.arc(n.x, n.y, r + 4, 0, Math.PI * 2);
-        ctx.strokeStyle = "#ff6b6b"; ctx.lineWidth = 2.2; ctx.setLineDash([4, 3]);
+        ctx.strokeStyle = "#d4553a"; ctx.lineWidth = 2.2; ctx.setLineDash([4, 3]);
         ctx.stroke(); ctx.setLineDash([]);
       }
       if (hovered === n) {
         ctx.beginPath();
         ctx.arc(n.x, n.y, r + 6, 0, Math.PI * 2);
-        ctx.strokeStyle = "#fff"; ctx.lineWidth = 1.5; ctx.stroke();
+        ctx.strokeStyle = "#f2efe6"; ctx.lineWidth = 1.5; ctx.stroke();
       }
       ctx.globalAlpha = 1;
-      ctx.font = "bold 11px Segoe UI, sans-serif";
+      ctx.font = "bold 11px Consolas, monospace";
       ctx.textAlign = "center";
-      ctx.fillStyle = n.depth === 0 ? "#dbeaff" : "#a8bbd9";
+      ctx.fillStyle = n.depth === 0 ? "#f2efe6" : "#9aa3b2";
       ctx.fillText(n.code, n.x, n.y + r + 14);
     });
     ctx.restore();
@@ -797,9 +797,9 @@ const Graph = (() => {
   function showTip(n, ev) {
     const wrapRect = $("graphWrap").getBoundingClientRect();
     tip.innerHTML = `<b>${esc(n.code)}</b><br>${esc(n.title)}<br>
-      <span style="color:#8fa3c4">${esc(n.kind)} · Ed ${n.edition} · ${n.amendments.length} amendments</span><br>
-      <span style="color:${n.cert_mandatory ? "#ff6b6b" : "#8fa3c4"}">${esc(n.cert_scheme)}</span>
-      <br><i style="color:#4da3ff;font-size:.7rem">click node → ask the assistant why</i>`;
+      <span style="color:#8b93a3">${esc(n.kind)} · Ed ${n.edition} · ${n.amendments.length} amendments</span><br>
+      <span style="color:${n.cert_mandatory ? "#d4553a" : "#8b93a3"}">${esc(n.cert_scheme)}</span>
+      <br><i style="color:#c9a35c;font-size:.7rem">click node → ask the assistant why</i>`;
     tip.classList.remove("hidden");
     const x = ev.clientX - wrapRect.left + 14, y = ev.clientY - wrapRect.top + 14;
     tip.style.left = Math.min(x, wrapRect.width - 330) + "px";
