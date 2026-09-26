@@ -8,8 +8,8 @@ __pycache__/
 # as self-generated demo files)
 real_tender_*.pdf
 
-# Competition submission material — kept private, never pushed
-ABSTRACT.md
+# Competition strategy material — kept private, never pushed
+# (the abstract IS public — it ships in this repo; PPT content stays private)
 PPT_CONTENT.md
 
 # Local tooling / workspace artifacts
