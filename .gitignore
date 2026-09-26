@@ -8,6 +8,10 @@ __pycache__/
 # as self-generated demo files)
 real_tender_*.pdf
 
+# Competition submission material — kept private, never pushed
+ABSTRACT.md
+PPT_CONTENT.md
+
 # Local tooling / workspace artifacts
 .freebuff/
 *.log
