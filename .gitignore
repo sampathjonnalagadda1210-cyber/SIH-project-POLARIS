@@ -1,0 +1,18 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Real government tender PDFs (third-party copyrighted documents —
+# do not redistribute; judges can download them from the sources cited
+# in the README, and demo_tender.txt / demo_tender.pdf are included
+# as self-generated demo files)
+real_tender_*.pdf
+
+# Local tooling / workspace artifacts
+.freebuff/
+*.log
+server.log
+
+# OS / editor noise
+.DS_Store
+Thumbs.db

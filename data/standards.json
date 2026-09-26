@@ -1,0 +1,631 @@
+{
+  "meta": {
+    "name": "SetuStandards Curated Corpus",
+    "version": "1.0",
+    "note": "Curated reference subset of Indian Standards for demo & evaluation. Editions/amendments are representative; verify current status on services.bis.gov.in before operational use.",
+    "size": 69
+  },
+  "records": [
+    {
+      "code": "IS 269", "num": 269, "part": null, "category": "Cement & Concrete",
+      "title": "Ordinary Portland Cement, 33 Grade — Specification",
+      "scope": "Ordinary Portland cement 33 grade manufacturing requirements physical and chemical properties fineness setting time soundness compressive strength for concrete works",
+      "kind": "Product / Specification", "edition": 2015,
+      "amendments": ["Amd 1 (2016)", "Amd 2 (2018)", "Amd 3 (2019)"],
+      "cert": { "scheme": "ISI Mark", "mandatory": true, "basis": "Mandatory certification under Quality Control Order (Cement)" },
+      "refs": ["IS 4031", "IS 4032", "IS 4845", "IS 456"]
+    },
+    {
+      "code": "IS 455", "num": 455, "part": null, "category": "Cement & Concrete",
+      "title": "Portland Slag Cement — Specification",
+      "scope": "Portland slag cement for use in concrete hydraulic structures marine works mass concrete blending granulated slag with opc clinker strength requirements",
+      "kind": "Product / Specification", "edition": 2015,
+      "amendments": ["Amd 1 (2016)", "Amd 2 (2019)"],
+      "cert": { "scheme": "ISI Mark", "mandatory": true, "basis": "Mandatory certification under Quality Control Order (Cement)" },
+      "refs": ["IS 4031", "IS 4032", "IS 4845"]
+    },
+    {
+      "code": "IS 1489", "num": 1489, "part": "Part 1", "category": "Cement & Concrete",
+      "title": "Portland Pozzolana Cement — Fly Ash Based — Specification",
+      "scope": "Portland pozzolana cement fly ash based for general concrete construction durability requirements strength fineness pozzolanic activity",
+      "kind": "Product / Specification", "edition": 2015,
+      "amendments": ["Amd 1 (2017)", "Amd 2 (2020)"],
+      "cert": { "scheme": "ISI Mark", "mandatory": true, "basis": "Mandatory certification under Quality Control Order (Cement)" },
+      "refs": ["IS 4031", "IS 4032", "IS 3812", "IS 4845"]
+    },
+    {
+      "code": "IS 4031", "num": 4031, "part": "Parts 1–15", "category": "Cement & Concrete",
+      "title": "Methods of Physical Tests for Hydraulic Cement",
+      "scope": "Methods of physical tests for hydraulic cement fineness soundness setting time consistency compressive strength determination test procedures sampling",
+      "kind": "Test Method", "edition": 1996,
+      "amendments": ["Amd 1 (2000)", "Amd 2 (2005)", "Amd 3 (2010)", "Amd 4 (2019)"],
+      "cert": { "scheme": "N/A — reference standard", "mandatory": false, "basis": "Test method standard, not certifiable" },
+      "refs": ["IS 4845"]
+    },
+    {
+      "code": "IS 4032", "num": 4032, "part": null, "category": "Cement & Concrete",
+      "title": "Methods of Chemical Analysis of Hydraulic Cement",
+      "scope": "Chemical analysis of hydraulic cement determination of silica lime iron alumina magnesia loss on ignition chlorides test methods",
+      "kind": "Test Method", "edition": 1985,
+      "amendments": ["Amd 1 (1990)", "Amd 2 (1999)", "Amd 3 (2005)"],
+      "cert": { "scheme": "N/A — reference standard", "mandatory": false, "basis": "Test method standard, not certifiable" },
+      "refs": []
+    },
+    {
+      "code": "IS 4845", "num": 4845, "part": null, "category": "Cement & Concrete",
+      "title": "Definitions and Terminology Relating to Hydraulic Cement",
+      "scope": "Definitions terminology relating to hydraulic cement opc ppc slag cement terms used in cement manufacture and testing",
+      "kind": "Terminology", "edition": 1968,
+      "amendments": ["Amd 1 (1975)"],
+      "cert": { "scheme": "N/A — reference standard", "mandatory": false, "basis": "Terminology standard, not certifiable" },
+      "refs": []
+    },
+    {
+      "code": "IS 383", "num": 383, "part": null, "category": "Cement & Concrete",
+      "title": "Coarse and Fine Aggregate for Concrete — Specification",
+      "scope": "Coarse and fine aggregates from natural sources manufactured sand crushed gravel for concrete grading limits deleterious materials soundness specification",
+      "kind": "Product / Specification", "edition": 2016,
+      "amendments": ["Amd 1 (2021)"],
+      "cert": { "scheme": "Voluntary — BIS licence recommended", "mandatory": false, "basis": "Not on mandatory certification list; commonly specified with BIS licence" },
+      "refs": ["IS 2386", "IS 460"]
+    },
+    {
+      "code": "IS 2386", "num": 2386, "part": "Parts 1–8", "category": "Cement & Concrete",
+      "title": "Methods of Test for Aggregates for Concrete",
+      "scope": "Methods of test for aggregates particle size and shape estimation deleterious materials specific gravity water absorption soundness crushing value impact value abrasion",
+      "kind": "Test Method", "edition": 1963,
+      "amendments": ["Amd 1 (1971)", "Amd 2 (1977)", "Amd 3 (1990)", "Amd 4 (2002)"],
+      "cert": { "scheme": "N/A — reference standard", "mandatory": false, "basis": "Test method standard, not certifiable" },
+      "refs": ["IS 460"]
+    },
+    {
+      "code": "IS 460", "num": 460, "part": "Parts 1–3", "category": "Testing Equipment",
+      "title": "Test Sieves — Specification",
+      "scope": "Test sieves wire cloth perforated plate specification sieve designation aperture size tolerances for particle size analysis",
+      "kind": "Product / Specification", "edition": 1985,
+      "amendments": ["Amd 1 (1992)", "Amd 2 (2004)"],
+      "cert": { "scheme": "Voluntary — BIS licence recommended", "mandatory": false, "basis": "Not on mandatory certification list" },
+      "refs": []
+    },
+    {
+      "code": "IS 456", "num": 456, "part": null, "category": "Cement & Concrete",
+      "title": "Plain and Reinforced Concrete — Code of Practice",
+      "scope": "Code of practice for plain and reinforced concrete design materials workmanship inspection durability cover reinforcement detailing water cement ratio",
+      "kind": "Code of Practice / Installation", "edition": 2000,
+      "amendments": ["Amd 1 (2001)", "Amd 2 (2005)"],
+      "cert": { "scheme": "N/A — reference standard", "mandatory": false, "basis": "Code of practice, not certifiable" },
+      "refs": ["IS 269", "IS 383", "IS 1786", "IS 3025", "IS 1199"]
+    },
+    {
+      "code": "IS 3025", "num": 3025, "part": "Parts 1–84", "category": "Water & Environment",
+      "title": "Methods of Sampling and Test (Physical and Chemical) for Water Used in Industry",
+      "scope": "Sampling and physical chemical tests for water used in industry ph turbidity hardness alkalinity chlorides dissolved solids water quality determination",
+      "kind": "Test Method", "edition": 1984,
+      "amendments": ["Amd 1 (1993)", "Amd 2 (2003)"],
+      "cert": { "scheme": "N/A — reference standard", "mandatory": false, "basis": "Test method standard, not certifiable" },
+      "refs": []
+    },
+    {
+      "code": "IS 1199", "num": 1199, "part": null, "category": "Cement & Concrete",
+      "title": "Methods of Sampling and Analysis of Concrete",
+      "scope": "Sampling and analysis of fresh hardened concrete workability slump test cube compressive strength density air content test procedures",
+      "kind": "Test Method", "edition": 2018,
+      "amendments": [],
+      "cert": { "scheme": "N/A — reference standard", "mandatory": false, "basis": "Test method standard, not certifiable" },
+      "refs": []
+    },
+    {
+      "code": "IS 9103", "num": 9103, "part": null, "category": "Cement & Concrete",
+      "title": "Concrete Admixtures — Specification",
+      "scope": "Concrete admixtures plasticizers superplasticizers accelerating retarding water reducing air entraining admixtures requirements performance tests",
+      "kind": "Product / Specification", "edition": 1999,
+      "amendments": ["Amd 1 (2007)", "Amd 2 (2015)"],
+      "cert": { "scheme": "Voluntary — BIS licence recommended", "mandatory": false, "basis": "Not on mandatory certification list" },
+      "refs": ["IS 269", "IS 456"]
+    },
+    {
+      "code": "IS 3812", "num": 3812, "part": "Parts 1–3", "category": "Cement & Concrete",
+      "title": "Pulverized Fuel Ash — Specification",
+      "scope": "Pulverized fuel ash fly ash for use as pozzolana and admixture in cement concrete mortar lime pozzolana mixtures fineness reactivity requirements",
+      "kind": "Product / Specification", "edition": 2003,
+      "amendments": ["Amd 1 (2011)"],
+      "cert": { "scheme": "Voluntary — BIS licence recommended", "mandatory": false, "basis": "Not on mandatory certification list" },
+      "refs": ["IS 1727"]
+    },
+    {
+      "code": "IS 1727", "num": 1727, "part": null, "category": "Cement & Concrete",
+      "title": "Methods of Test for Pozzolanic Materials",
+      "scope": "Methods of test for pozzolanic materials fly ash surkhi lime reactivity soundness fineness drying shrinkage test procedures",
+      "kind": "Test Method", "edition": 1967,
+      "amendments": ["Amd 1 (1972)", "Amd 2 (1982)", "Amd 3 (1995)"],
+      "cert": { "scheme": "N/A — reference standard", "mandatory": false, "basis": "Test method standard, not certifiable" },
+      "refs": []
+    },
+    {
+      "code": "IS 4926", "num": 4926, "part": null, "category": "Cement & Concrete",
+      "title": "Ready-Mixed Concrete — Code of Practice",
+      "scope": "Ready mixed concrete rmc produced and delivered in plastic condition requirements materials batching mixing transport placing testing acceptance criteria",
+      "kind": "Code of Practice / Installation", "edition": 2003,
+      "amendments": ["Amd 1 (2007)", "Amd 2 (2015)"],
+      "cert": { "scheme": "Voluntary — BIS licence recommended", "mandatory": false, "basis": "Not on mandatory certification list" },
+      "refs": ["IS 269", "IS 383", "IS 1786", "IS 456", "IS 1199"]
+    },
+    {
+      "code": "IS 1786", "num": 1786, "part": null, "category": "Steel",
+      "title": "High Tensile Strength Deformed Steel Bars and Wires for Concrete Reinforcement — Specification",
+      "scope": "High tensile strength deformed steel bars wires for reinforcement of concrete fe415 fe500 fe550 fe600 grades tensile strength elongation bend rebend chemical composition tmt",
+      "kind": "Product / Specification", "edition": 2008,
+      "amendments": ["Amd 1 (2010)", "Amd 2 (2012)", "Amd 3 (2015)", "Amd 4 (2019)"],
+      "cert": { "scheme": "ISI Mark", "mandatory": true, "basis": "Mandatory certification under Quality Control Order (Steel & Steel Products)" },
+      "refs": ["IS 1608", "IS 228", "IS 456"]
+    },
+    {
+      "code": "IS 432", "num": 432, "part": "Part 1", "category": "Steel",
+      "title": "Mild Steel and Medium Tensile Steel Bars and Hard-Drawn Steel Wire for Concrete Reinforcement — Specification",
+      "scope": "Mild steel medium tensile steel bars hard drawn steel wire for concrete reinforcement round square plain bars tensile requirements",
+      "kind": "Product / Specification", "edition": 1982,
+      "amendments": ["Amd 1 (1988)", "Amd 2 (1995)", "Amd 3 (2004)"],
+      "cert": { "scheme": "ISI Mark", "mandatory": true, "basis": "Mandatory certification under Quality Control Order (Steel & Steel Products)" },
+      "refs": ["IS 1608", "IS 228"]
+    },
+    {
+      "code": "IS 2062", "num": 2062, "part": null, "category": "Steel",
+      "title": "Hot Rolled Medium and High Tensile Structural Steel — Specification",
+      "scope": "Hot rolled medium and high tensile structural steel plates sections strips angles tees beams for structural steelwork yield strength tensile properties weldability",
+      "kind": "Product / Specification", "edition": 2011,
+      "amendments": ["Amd 1 (2012)", "Amd 2 (2016)", "Amd 3 (2020)"],
+      "cert": { "scheme": "ISI Mark", "mandatory": true, "basis": "Mandatory certification under Quality Control Order (Steel & Steel Products)" },
+      "refs": ["IS 1608", "IS 228", "IS 800"]
+    },
+    {
+      "code": "IS 1608", "num": 1608, "part": null, "category": "Steel",
+      "title": "Metallic Materials — Tensile Testing at Ambient Temperature",
+      "scope": "Tensile testing of metallic materials at ambient temperature yield strength tensile strength elongation reduction of area test procedure specimen preparation",
+      "kind": "Test Method", "edition": 2005,
+      "amendments": ["Amd 1 (2012)"],
+      "cert": { "scheme": "N/A — reference standard", "mandatory": false, "basis": "Test method standard, not certifiable" },
+      "refs": []
+    },
+    {
+      "code": "IS 228", "num": 228, "part": null, "category": "Steel",
+      "title": "Methods of Chemical Analysis of Pig Iron, Cast Iron and Plain Carbon and Low Alloy Steels",
+      "scope": "Chemical analysis of pig iron cast iron plain carbon low alloy steels carbon sulphur phosphorus manganese determination methods",
+      "kind": "Test Method", "edition": 2005,
+      "amendments": [],
+      "cert": { "scheme": "N/A — reference standard", "mandatory": false, "basis": "Test method standard, not certifiable" },
+      "refs": []
+    },
+    {
+      "code": "IS 800", "num": 800, "part": null, "category": "Steel",
+      "title": "General Construction in Steel — Code of Practice",
+      "scope": "General construction in steel code of practice structural steelwork design limit state bolted welded connections stability fabrication erection",
+      "kind": "Code of Practice / Installation", "edition": 2007,
+      "amendments": ["Amd 1 (2012)", "Amd 2 (2022)"],
+      "cert": { "scheme": "N/A — reference standard", "mandatory": false, "basis": "Code of practice, not certifiable" },
+      "refs": ["IS 2062", "IS 816", "IS 3757"]
+    },
+    {
+      "code": "IS 816", "num": 816, "part": null, "category": "Steel",
+      "title": "Code of Practice for Use of Metal Arc Welding in Mild Steel",
+      "scope": "Metal arc welding of mild steel code of practice electrode selection joints preparation quality inspection welding procedure",
+      "kind": "Code of Practice / Installation", "edition": 1969,
+      "amendments": ["Amd 1 (1972)", "Amd 2 (1994)"],
+      "cert": { "scheme": "N/A — reference standard", "mandatory": false, "basis": "Code of practice, not certifiable" },
+      "refs": []
+    },
+    {
+      "code": "IS 3757", "num": 3757, "part": null, "category": "Steel",
+      "title": "Structural Bolts — High Tensile Steel — Specification",
+      "scope": "High tensile steel structural bolts for use in steel structures friction grip fasteners mechanical properties test requirements",
+      "kind": "Product / Specification", "edition": 1985,
+      "amendments": ["Amd 1 (1997)"],
+      "cert": { "scheme": "Voluntary — BIS licence recommended", "mandatory": false, "basis": "Not on mandatory certification list" },
+      "refs": ["IS 1608"]
+    },
+    {
+      "code": "IS 1239", "num": 1239, "part": "Parts 1–2", "category": "Steel",
+      "title": "Mild Steel Tubes, Tubulars and Other Wrought Steel Fittings — Specification",
+      "scope": "Mild steel tubes tubulars wrought steel fittings for water gas steam air lines galvanized black ms pipes dimensions wall thickness pressure ratings",
+      "kind": "Product / Specification", "edition": 2004,
+      "amendments": ["Amd 1 (2008)", "Amd 2 (2011)", "Amd 3 (2016)"],
+      "cert": { "scheme": "ISI Mark", "mandatory": true, "basis": "Mandatory certification under Quality Control Order (Steel & Steel Products)" },
+      "refs": ["IS 1608", "IS 2629"]
+    },
+    {
+      "code": "IS 3589", "num": 3589, "part": null, "category": "Steel",
+      "title": "Steel Pipes for Water and Sewage — Specification",
+      "scope": "Electrically welded steel pipes up to 2000 mm for water sewage gas lines hydrostatic testing coating lining requirements",
+      "kind": "Product / Specification", "edition": 2001,
+      "amendments": ["Amd 1 (2007)", "Amd 2 (2014)"],
+      "cert": { "scheme": "ISI Mark", "mandatory": true, "basis": "Mandatory certification under Quality Control Order (Steel & Steel Products)" },
+      "refs": ["IS 1608"]
+    },
+    {
+      "code": "IS 2629", "num": 2629, "part": null, "category": "Steel",
+      "title": "Recommended Practice for Hot Dip Galvanizing of Iron and Steel",
+      "scope": "Hot dip galvanizing of iron and steel recommended practice surface preparation zinc bath coating mass thickness adhesion uniformity inspection",
+      "kind": "Code of Practice / Installation", "edition": 1985,
+      "amendments": ["Amd 1 (1993)"],
+      "cert": { "scheme": "N/A — reference standard", "mandatory": false, "basis": "Process standard, not certifiable" },
+      "refs": []
+    },
+    {
+      "code": "IS 277", "num": 277, "part": null, "category": "Steel",
+      "title": "Galvanized Steel Sheets (Plain and Corrugated) — Specification",
+      "scope": "Galvanized plain corrugated steel sheets zinc coating mass sheet dimensions tolerances bend test requirements for roofing cladding",
+      "kind": "Product / Specification", "edition": 2003,
+      "amendments": ["Amd 1 (2009)", "Amd 2 (2018)"],
+      "cert": { "scheme": "Voluntary — BIS licence recommended", "mandatory": false, "basis": "Not on mandatory certification list" },
+      "refs": ["IS 1608", "IS 2629"]
+    },
+    {
+      "code": "IS 4985", "num": 4985, "part": null, "category": "Plastics & Pipes",
+      "title": "Unplasticized PVC Pipes for Potable Water Supplies — Specification",
+      "scope": "Unplasticized polyvinyl chloride upvc pvc pipes for potable water supplies class ratings dimensions hydrostatic pressure test toxicity leaching requirements",
+      "kind": "Product / Specification", "edition": 2000,
+      "amendments": ["Amd 1 (2006)", "Amd 2 (2014)"],
+      "cert": { "scheme": "Voluntary — BIS licence recommended", "mandatory": false, "basis": "Not on mandatory certification list; widely certified in practice" },
+      "refs": ["IS 2505", "IS 7634", "IS 10146"]
+    },
+    {
+      "code": "IS 2505", "num": 2505, "part": null, "category": "Plastics & Pipes",
+      "title": "Methods of Test for Unplasticized PVC Pipes",
+      "scope": "Methods of test for unplasticized pvc pipes hydrostatic pressure resistance crush strength flattening opacity acetone immersion dimensions",
+      "kind": "Test Method", "edition": 2005,
+      "amendments": ["Amd 1 (2012)"],
+      "cert": { "scheme": "N/A — reference standard", "mandatory": false, "basis": "Test method standard, not certifiable" },
+      "refs": []
+    },
+    {
+      "code": "IS 7634", "num": 7634, "part": "Parts 1–3", "category": "Plastics & Pipes",
+      "title": "Code of Practice for Laying of Plastics Pipefittings for Potable Water Supplies",
+      "scope": "Laying of plastics pipes fittings for potable water supplies trenching bedding jointing testing disinfection installation practice",
+      "kind": "Code of Practice / Installation", "edition": 1975,
+      "amendments": ["Amd 1 (1981)", "Amd 2 (2003)"],
+      "cert": { "scheme": "N/A — reference standard", "mandatory": false, "basis": "Code of practice, not certifiable" },
+      "refs": []
+    },
+    {
+      "code": "IS 15778", "num": 15778, "part": null, "category": "Plastics & Pipes",
+      "title": "Chlorinated Polyvinyl Chloride (CPVC) Pipes for Hot and Cold Water — Specification",
+      "scope": "Chlorinated polyvinyl chloride cpvc pipes hot cold water plumbing systems pressure temperature ratings fittings requirements",
+      "kind": "Product / Specification", "edition": 2008,
+      "amendments": ["Amd 1 (2015)"],
+      "cert": { "scheme": "Voluntary — BIS licence recommended", "mandatory": false, "basis": "Not on mandatory certification list" },
+      "refs": ["IS 2505", "IS 7634"]
+    },
+    {
+      "code": "IS 694", "num": 694, "part": null, "category": "Electrical",
+      "title": "PVC Insulated Cables for Working Voltages up to and Including 1100 V — Specification",
+      "scope": "Pvc insulated cables conductors for working voltages up to 1100 volts household industrial wiring insulation thickness conductor resistance flame retardant",
+      "kind": "Product / Specification", "edition": 2010,
+      "amendments": ["Amd 1 (2012)", "Amd 2 (2014)", "Amd 3 (2016)", "Amd 4 (2018)", "Amd 5 (2021)"],
+      "cert": { "scheme": "ISI Mark", "mandatory": true, "basis": "Mandatory certification under Quality Control Order (Electrical cables)" },
+      "refs": ["IS 10810", "IS 732", "IS 1554"]
+    },
+    {
+      "code": "IS 7098", "num": 7098, "part": "Part 1", "category": "Electrical",
+      "title": "Cross-Linked Polyethylene (XLPE) Insulated Cables up to 1100 V — Specification",
+      "scope": "Cross linked polyethylene xlpe insulated cables up to 1100 volts power distribution short circuit rating conductor requirements",
+      "kind": "Product / Specification", "edition": 1988,
+      "amendments": ["Amd 1 (1992)", "Amd 2 (2001)", "Amd 3 (2010)", "Amd 4 (2019)"],
+      "cert": { "scheme": "ISI Mark", "mandatory": true, "basis": "Mandatory certification under Quality Control Order (Electrical cables)" },
+      "refs": ["IS 10810", "IS 732"]
+    },
+    {
+      "code": "IS 1554", "num": 1554, "part": "Parts 1–2", "category": "Electrical",
+      "title": "PVC Insulated (Heavy Duty) Electric Cables — Specification",
+      "scope": "Pvc insulated heavy duty electric cables for working voltages up to 1100 volts armoured unarmoured power transmission requirements",
+      "kind": "Product / Specification", "edition": 1988,
+      "amendments": ["Amd 1 (1994)", "Amd 2 (2003)", "Amd 3 (2011)", "Amd 4 (2017)"],
+      "cert": { "scheme": "ISI Mark", "mandatory": true, "basis": "Mandatory certification under Quality Control Order (Electrical cables)" },
+      "refs": ["IS 10810", "IS 732"]
+    },
+    {
+      "code": "IS 10810", "num": 10810, "part": "Parts 1–84", "category": "Electrical",
+      "title": "Methods of Test for Cables",
+      "scope": "Methods of test for cables conductor resistance insulation resistance high voltage test tensile strength elongation ageing flame test test procedures",
+      "kind": "Test Method", "edition": 1984,
+      "amendments": ["Amd 1 (1995)", "Amd 2 (2010)"],
+      "cert": { "scheme": "N/A — reference standard", "mandatory": false, "basis": "Test method standard, not certifiable" },
+      "refs": []
+    },
+    {
+      "code": "IS 732", "num": 732, "part": null, "category": "Electrical",
+      "title": "Electrical Wiring Installations — Code of Practice",
+      "scope": "Electrical wiring installations code of practice low medium voltage circuits earthing protection selection of cables switchgear safety requirements",
+      "kind": "Safety", "edition": 2018,
+      "amendments": [],
+      "cert": { "scheme": "N/A — reference standard", "mandatory": false, "basis": "Safety code, not certifiable" },
+      "refs": []
+    },
+    {
+      "code": "IS 8828", "num": 8828, "part": null, "category": "Electrical",
+      "title": "Miniature Circuit-Breakers (MCB) for Household and Similar Installations — Specification",
+      "scope": "Miniature circuit breakers mcb for household similar installations overcurrent protection breaking capacity rated current aligns with iec 60898",
+      "kind": "Product / Specification", "edition": 2019,
+      "amendments": [],
+      "cert": { "scheme": "ISI Mark", "mandatory": true, "basis": "Mandatory certification under Quality Control Order (Electrical accessories)" },
+      "refs": ["IS 732"]
+    },
+    {
+      "code": "IS 1293", "num": 1293, "part": null, "category": "Electrical",
+      "title": "Plugs and Socket-Outlets of Rated Voltage up to and Including 250 V and Rated Current up to and Including 16 A — Specification",
+      "scope": "Plugs socket outlets rated voltage 250 volts rated current 16 amperes construction safety dimensions interlock requirements",
+      "kind": "Product / Specification", "edition": 2019,
+      "amendments": ["Amd 1 (2021)"],
+      "cert": { "scheme": "ISI Mark", "mandatory": true, "basis": "Mandatory certification under Quality Control Order (Electrical accessories)" },
+      "refs": ["IS 732"]
+    },
+    {
+      "code": "IS 374", "num": 374, "part": null, "category": "Electrical",
+      "title": "Electric Ceiling Type Fans and Regulators — Specification",
+      "scope": "Electric ceiling type fans regulators air delivery sweep size power consumption performance testing requirements",
+      "kind": "Product / Specification", "edition": 2019,
+      "amendments": [],
+      "cert": { "scheme": "ISI Mark", "mandatory": true, "basis": "Mandatory certification under Quality Control Order (Household electrical appliances)" },
+      "refs": ["IS 302 (Part 1)"]
+    },
+    {
+      "code": "IS 302", "num": 302, "part": "Part 1", "category": "Electrical",
+      "title": "Household and Similar Electrical Appliances — Safety — General Requirements",
+      "scope": "Safety of household similar electrical appliances general requirements insulation creepage clearances leakage current protection against electric shock",
+      "kind": "Safety", "edition": 2008,
+      "amendments": ["Amd 1 (2010)", "Amd 2 (2017)"],
+      "cert": { "scheme": "N/A — reference standard", "mandatory": false, "basis": "Safety standard, not certifiable by itself" },
+      "refs": []
+    },
+    {
+      "code": "IS 4246", "num": 4246, "part": null, "category": "Gas Appliances",
+      "title": "Domestic Gas Stoves for Use with Liquefied Petroleum Gases — Specification",
+      "scope": "Domestic gas stoves for liquefied petroleum gas lpg burner performance thermal efficiency safety requirements materials construction",
+      "kind": "Product / Specification", "edition": 2002,
+      "amendments": ["Amd 1 (2008)", "Amd 2 (2016)"],
+      "cert": { "scheme": "ISI Mark", "mandatory": true, "basis": "Mandatory certification under Quality Control Order (Gas cylinders, valves and stoves)" },
+      "refs": ["IS 3196", "IS 6044"]
+    },
+    {
+      "code": "IS 3196", "num": 3196, "part": null, "category": "Gas Appliances",
+      "title": "Transportable Refillable Welded Steel Cylinders for Liquefied Petroleum Gases — Specification",
+      "scope": "Transportable refillable welded steel cylinders for lpg capacities design pressure hydrostatic test pneumatic test safety relief requirements",
+      "kind": "Product / Specification", "edition": 2005,
+      "amendments": ["Amd 1 (2010)", "Amd 2 (2019)"],
+      "cert": { "scheme": "ISI Mark", "mandatory": true, "basis": "Mandatory certification under Quality Control Order (Gas cylinders, valves and stoves)" },
+      "refs": ["IS 6044", "IS 3224"]
+    },
+    {
+      "code": "IS 3224", "num": 3224, "part": null, "category": "Gas Appliances",
+      "title": "Regulators for Use with LPG Cylinders — Specification",
+      "scope": "Pressure regulators for use with lpg cylinders low pressure regulators construction safety performance leak tightness requirements",
+      "kind": "Product / Specification", "edition": 2002,
+      "amendments": ["Amd 1 (2011)"],
+      "cert": { "scheme": "ISI Mark", "mandatory": true, "basis": "Mandatory certification under Quality Control Order (Gas cylinders, valves and stoves)" },
+      "refs": ["IS 6044"]
+    },
+    {
+      "code": "IS 6044", "num": 6044, "part": "Part 1", "category": "Gas Appliances",
+      "title": "Code of Practice for Liquefied Petroleum Gas Installations",
+      "scope": "Liquefied petroleum gas installations code of practice piping storage cylinder manifolds leak testing ventilation safety precautions domestic commercial",
+      "kind": "Code of Practice / Installation", "edition": 2000,
+      "amendments": ["Amd 1 (2008)"],
+      "cert": { "scheme": "N/A — reference standard", "mandatory": false, "basis": "Code of practice, not certifiable" },
+      "refs": []
+    },
+    {
+      "code": "IS 446", "num": 446, "part": null, "category": "Gas Appliances",
+      "title": "Rubber Hoses for Liquefied Petroleum Gas — Specification",
+      "scope": "Rubber hoses for lpg domestic appliances construction burst pressure aging resistance leakage requirements",
+      "kind": "Product / Specification", "edition": 2005,
+      "amendments": ["Amd 1 (2013)"],
+      "cert": { "scheme": "Voluntary — BIS licence recommended", "mandatory": false, "basis": "Not on mandatory certification list" },
+      "refs": ["IS 3196", "IS 6044"]
+    },
+    {
+      "code": "IS 2347", "num": 2347, "part": null, "category": "Consumer Products",
+      "title": "Aluminium Pressure Cookers — Specification",
+      "scope": "Aluminium pressure cookers construction safety valve fusible pressure gauge performance test requirements kitchenware",
+      "kind": "Product / Specification", "edition": 2017,
+      "amendments": [],
+      "cert": { "scheme": "ISI Mark", "mandatory": true, "basis": "Mandatory certification under Quality Control Order (Pressure cookers)" },
+      "refs": ["IS 302 (Part 1)"]
+    },
+    {
+      "code": "IS 2925", "num": 2925, "part": null, "category": "Safety & PPE",
+      "title": "Industrial Safety Helmets — Specification",
+      "scope": "Industrial safety helmets construction shock absorption penetration resistance chin strap flammability requirements head protection",
+      "kind": "Product / Specification", "edition": 1984,
+      "amendments": ["Amd 1 (1990)", "Amd 2 (2001)"],
+      "cert": { "scheme": "Voluntary — BIS licence recommended", "mandatory": false, "basis": "Not on mandatory certification list" },
+      "refs": ["IS 2927"]
+    },
+    {
+      "code": "IS 2927", "num": 2927, "part": null, "category": "Safety & PPE",
+      "title": "Methods of Test for Industrial Safety Helmets",
+      "scope": "Methods of test for industrial safety helmets shock absorption penetration chin strap retention flammability test procedures",
+      "kind": "Test Method", "edition": 1984,
+      "amendments": ["Amd 1 (1999)"],
+      "cert": { "scheme": "N/A — reference standard", "mandatory": false, "basis": "Test method standard, not certifiable" },
+      "refs": []
+    },
+    {
+      "code": "IS 15298", "num": 15298, "part": "Part 2", "category": "Safety & PPE",
+      "title": "Personal Protective Equipment — Footwear — Safety Footwear — Specification",
+      "scope": "Personal protective equipment safety footwear toe protection slip resistance penetration resistant midsole sole requirements",
+      "kind": "Product / Specification", "edition": 2016,
+      "amendments": [],
+      "cert": { "scheme": "Voluntary — BIS licence recommended", "mandatory": false, "basis": "Not on mandatory certification list" },
+      "refs": []
+    },
+    {
+      "code": "IS 16102", "num": 16102, "part": "Part 1", "category": "Lighting",
+      "title": "Self-Ballasted LED Lamps for General Lighting Services — Safety Requirements",
+      "scope": "Self ballasted led lamps general lighting safety requirements photometric electrical insulation temperature rise interchangeability",
+      "kind": "Product / Specification", "edition": 2012,
+      "amendments": ["Amd 1 (2018)"],
+      "cert": { "scheme": "CRS", "mandatory": true, "basis": "Mandatory registration under Compulsory Registration Scheme (LED lighting)" },
+      "refs": ["IS 3646"]
+    },
+    {
+      "code": "IS 3646", "num": 3646, "part": "Parts 1–2", "category": "Lighting",
+      "title": "Code of Practice for Interior Illumination",
+      "scope": "Interior illumination code of practice illuminance levels glare control lighting design installation recommendations for buildings",
+      "kind": "Code of Practice / Installation", "edition": 1992,
+      "amendments": ["Amd 1 (2001)"],
+      "cert": { "scheme": "N/A — reference standard", "mandatory": false, "basis": "Code of practice, not certifiable" },
+      "refs": []
+    },
+    {
+      "code": "IS 13779", "num": 13779, "part": null, "category": "Meters & Pumps",
+      "title": "A.C. Static Watt-Hour Meters of Class Accuracy 0.2s, 0.5 and 1.0 — Specification",
+      "scope": "A c static watthour energy meters class accuracy measurement requirements testing electrical energy metering smart metering compatible",
+      "kind": "Product / Specification", "edition": 1999,
+      "amendments": ["Amd 1 (2005)", "Amd 2 (2012)"],
+      "cert": { "scheme": "ISI Mark", "mandatory": true, "basis": "Mandatory certification under Quality Control Order (Energy meters)" },
+      "refs": ["IS 732"]
+    },
+    {
+      "code": "IS 779", "num": 779, "part": null, "category": "Meters & Pumps",
+      "title": "Water Meters (Domestic Type) — Specification",
+      "scope": "Domestic water meters volumetric velocity type construction metrological requirements testing cold potable water metering",
+      "kind": "Product / Specification", "edition": 1994,
+      "amendments": ["Amd 1 (2001)"],
+      "cert": { "scheme": "Voluntary — BIS licence recommended", "mandatory": false, "basis": "Not on mandatory certification list" },
+      "refs": []
+    },
+    {
+      "code": "IS 12615", "num": 12615, "part": null, "category": "Meters & Pumps",
+      "title": "Energy-Efficient Induction Motors — Three Phase Squirrel Cage — Specification",
+      "scope": "Three phase squirrel cage induction motors energy efficiency classes ie2 ie3 ie4 rating performance test requirements",
+      "kind": "Product / Specification", "edition": 2018,
+      "amendments": [],
+      "cert": { "scheme": "Voluntary — BIS licence recommended", "mandatory": false, "basis": "Not on mandatory certification list" },
+      "refs": ["IS 5120"]
+    },
+    {
+      "code": "IS 9079", "num": 9079, "part": null, "category": "Meters & Pumps",
+      "title": "Borewell Submersible Pump Sets — Specification",
+      "scope": "Borewell submersible pump sets construction performance efficiency head discharge test requirements water lifting",
+      "kind": "Product / Specification", "edition": 2004,
+      "amendments": ["Amd 1 (2012)"],
+      "cert": { "scheme": "Voluntary — BIS licence recommended", "mandatory": false, "basis": "Not on mandatory certification list" },
+      "refs": ["IS 12615", "IS 5120"]
+    },
+    {
+      "code": "IS 5120", "num": 5120, "part": null, "category": "Meters & Pumps",
+      "title": "Recommendations for Installation and Maintenance of Pumps",
+      "scope": "Installation and maintenance of pumps recommendations foundation alignment priming operation preventive maintenance",
+      "kind": "Code of Practice / Installation", "edition": 1977,
+      "amendments": ["Amd 1 (1995)"],
+      "cert": { "scheme": "N/A — reference standard", "mandatory": false, "basis": "Code of practice, not certifiable" },
+      "refs": []
+    },
+    {
+      "code": "IS 8329", "num": 8329, "part": null, "category": "Steel",
+      "title": "Ductile Iron Fittings for Pressure Pipes for Water, Gas and Sewage — Specification",
+      "scope": "Ductile iron fittings for pressure pipes water gas sewage flanged socket spigot joints mechanical properties coating requirements",
+      "kind": "Product / Specification", "edition": 2000,
+      "amendments": ["Amd 1 (2007)"],
+      "cert": { "scheme": "Voluntary — BIS licence recommended", "mandatory": false, "basis": "Not on mandatory certification list" },
+      "refs": ["IS 1239"]
+    },
+    {
+      "code": "IS 9537", "num": 9537, "part": "Parts 1–3", "category": "Electrical",
+      "title": "Rigid PVC Conduits for Electrical Wiring — Specification",
+      "scope": "Rigid pvc conduits for electrical wiring installation dimensions crush resistance bending temperature requirements",
+      "kind": "Product / Specification", "edition": 1980,
+      "amendments": ["Amd 1 (1990)", "Amd 2 (2006)"],
+      "cert": { "scheme": "Voluntary — BIS licence recommended", "mandatory": false, "basis": "Not on mandatory certification list" },
+      "refs": ["IS 732"]
+    },
+    {
+      "code": "IS 1077", "num": 1077, "part": null, "category": "Building Materials",
+      "title": "Common Burnt Clay Building Bricks — Specification",
+      "scope": "Common burnt clay building bricks compressive strength water absorption efflorescence classes dimensions tolerance requirements",
+      "kind": "Product / Specification", "edition": 1992,
+      "amendments": ["Amd 1 (1999)", "Amd 2 (2005)", "Amd 3 (2016)"],
+      "cert": { "scheme": "ISI Mark", "mandatory": true, "basis": "Mandatory certification under Quality Control Order (Building materials)" },
+      "refs": ["IS 3495", "IS 2212"]
+    },
+    {
+      "code": "IS 3495", "num": 3495, "part": "Parts 1–4", "category": "Building Materials",
+      "title": "Methods of Tests of Burnt Clay Building Bricks",
+      "scope": "Determination of compressive strength water absorption efflorescence warpage of burnt clay building bricks test procedures",
+      "kind": "Test Method", "edition": 1992,
+      "amendments": ["Amd 1 (2001)", "Amd 2 (2011)"],
+      "cert": { "scheme": "N/A — reference standard", "mandatory": false, "basis": "Test method standard, not certifiable" },
+      "refs": []
+    },
+    {
+      "code": "IS 2212", "num": 2212, "part": null, "category": "Building Materials",
+      "title": "Code of Practice for Brickwork",
+      "scope": "Brickwork construction code of practice mortars bonding laying curing scaffolding supervision quality requirements",
+      "kind": "Code of Practice / Installation", "edition": 1991,
+      "amendments": ["Amd 1 (1998)"],
+      "cert": { "scheme": "N/A — reference standard", "mandatory": false, "basis": "Code of practice, not certifiable" },
+      "refs": []
+    },
+    {
+      "code": "IS 2185", "num": 2185, "part": "Part 1", "category": "Building Materials",
+      "title": "Concrete Hollow and Solid Blocks — Specification",
+      "scope": "Concrete hollow solid blocks for normal non load bearing walls dimensions compressive strength drying shrinkage requirements",
+      "kind": "Product / Specification", "edition": 2005,
+      "amendments": ["Amd 1 (2013)"],
+      "cert": { "scheme": "ISI Mark", "mandatory": true, "basis": "Mandatory certification under Quality Control Order (Building materials)" },
+      "refs": ["IS 2212"]
+    },
+    {
+      "code": "IS 120", "num": 120, "part": null, "category": "Paints",
+      "title": "Emulsion Paint — Specification",
+      "scope": "Emulsion paint water based brushing finish interior exterior application drying time hiding power consistency requirements",
+      "kind": "Product / Specification", "edition": 2015,
+      "amendments": [],
+      "cert": { "scheme": "Voluntary — BIS licence recommended", "mandatory": false, "basis": "Not on mandatory certification list" },
+      "refs": ["IS 101", "IS 2395"]
+    },
+    {
+      "code": "IS 101", "num": 101, "part": null, "category": "Paints",
+      "title": "Methods of Test for Ready Mixed Paints and Synthetic Enamels",
+      "scope": "Methods of test for ready mixed paints synthetic enamels drying time fineness hiding power adhesion consistency test procedures",
+      "kind": "Test Method", "edition": 1988,
+      "amendments": ["Amd 1 (1996)", "Amd 2 (2008)"],
+      "cert": { "scheme": "N/A — reference standard", "mandatory": false, "basis": "Test method standard, not certifiable" },
+      "refs": []
+    },
+    {
+      "code": "IS 2395", "num": 2395, "part": "Parts 1–2", "category": "Paints",
+      "title": "Code of Practice for Painting Concrete, Masonry and Plastered Surfaces",
+      "scope": "Painting of concrete masonry plastered surfaces code of practice surface preparation priming application of paint finishing",
+      "kind": "Code of Practice / Installation", "edition": 1990,
+      "amendments": ["Amd 1 (2002)"],
+      "cert": { "scheme": "N/A — reference standard", "mandatory": false, "basis": "Code of practice, not certifiable" },
+      "refs": []
+    },
+    {
+      "code": "IS 10146", "num": 10146, "part": null, "category": "Food Packaging",
+      "title": "Plastics Materials for Food Contact Applications — Specification",
+      "scope": "Plastics materials polyethylene polypropylene for contact with foodstuffs food packaging safety migration limits potable water contact",
+      "kind": "Product / Specification", "edition": 1982,
+      "amendments": ["Amd 1 (1990)", "Amd 2 (2004)"],
+      "cert": { "scheme": "Voluntary — BIS licence recommended", "mandatory": false, "basis": "Not on mandatory certification list" },
+      "refs": ["IS 9845"]
+    },
+    {
+      "code": "IS 9845", "num": 9845, "part": null, "category": "Food Packaging",
+      "title": "Analysis of Plastics Materials in Contact with Foodstuffs — Test Methods",
+      "scope": "Determination of overall migration constituents of plastics in contact with foodstuffs extraction analysis test methods",
+      "kind": "Test Method", "edition": 1986,
+      "amendments": ["Amd 1 (1998)"],
+      "cert": { "scheme": "N/A — reference standard", "mandatory": false, "basis": "Test method standard, not certifiable" },
+      "refs": []
+    },
+    {
+      "code": "IS 12701", "num": 12701, "part": null, "category": "Food Packaging",
+      "title": "Rotomoulded Polyethylene Water Storage Tanks — Specification",
+      "scope": "Rotomoulded polyethylene water storage tanks capacity construction uv stability potable water contact black liner requirements",
+      "kind": "Product / Specification", "edition": 1996,
+      "amendments": ["Amd 1 (2005)", "Amd 2 (2014)"],
+      "cert": { "scheme": "Voluntary — BIS licence recommended", "mandatory": false, "basis": "Not on mandatory certification list" },
+      "refs": ["IS 10146"]
+    }
+  ]
+}

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>POLARIS — AI Standards Recommendation Engine for Procurement | SIH26108</title>
+<meta name="description" content="POLARIS: AI-powered recommendation engine that maps tender specifications to applicable Indian Standards, allied normative references, current versions and mandatory certifications. Built by Team ATLAS." />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-logo">A</div>
+    <div>
+      <h1>POLARIS</h1>
+      <p><b>P</b>rocurement-<b>O</b>riented <b>L</b>isting of <b>A</b>pplicable <b>R</b>eferences in <b>I</b>ndian <b>S</b>tandards · <span class="ps-tag">Team ATLAS · SIH 2026 · PS SIH26108</span></p>
+    </div>
+  </div>
+  <div class="topbar-status">
+    <span class="dot" id="healthDot"></span>
+    <span id="healthText">Connecting…</span>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs">
+  <button class="tab active" data-view="analyze">⚖️ Analyze</button>
+  <button class="tab" data-view="map">🕸️ Standards Map</button>
+  <button class="tab" data-view="assistant">💬 Assistant</button>
+  <button class="tab" data-view="library">📚 Standards Library</button>
+  <button class="tab" data-view="report">📄 Assessment Report</button>
+</nav>
+
+<!-- ================= VIEW: ANALYZE ================= -->
+<main id="view-analyze" class="view active">
+  <section class="hero">
+    <h2>Paste, type or upload a specification.<br/>Get the <em>right</em> Indian Standards — semantically.</h2>
+    <div class="lang-row">
+      <span class="lang-chip">🌐 English · हिन्दी (Devanagari) · Hinglish</span>
+      <button class="btn ghost small" onclick="fillDemo(0)">Demo: Tender (EN)</button>
+      <button class="btn ghost small" onclick="fillDemo(1)">Demo: हिन्दी</button>
+      <button class="btn ghost small" onclick="fillDemo(2)">Demo: Outdated citations</button>
+    </div>
+
+    <div class="input-tabs">
+      <button class="input-tab active" data-input="type">⌨️ Type / Paste</button>
+      <button class="input-tab" data-input="upload">📎 Upload document</button>
+      <button class="input-tab" data-input="image">🖼️ Image / photo of document</button>
+      <button class="input-tab" data-input="voice">🎙️ Speak (voice)</button>
+    </div>
+
+    <div class="input-panel active" id="panel-type">
+      <textarea id="inputText" rows="8" spellcheck="false"
+        placeholder="e.g. Supply of TMT reinforcement bars Fe 500 for RCC work, OPC 43 grade cement, PVC insulated cables 1100 V, MS pipes for water line as per IS 1239:2004…"></textarea>
+    </div>
+
+    <div class="input-panel" id="panel-upload">
+      <div class="dropzone" id="dropzone">
+        <p><b>Drop a .txt or .pdf tender file here</b> or click to browse</p>
+        <p class="mut">Real PDFs are parsed in-browser-free: text-based PDFs are extracted on the server with zero dependencies. Scanned PDFs → use the Image tab.</p>
+        <input type="file" id="fileInput" accept=".txt,.md,.pdf" hidden />
+      </div>
+      <div id="uploadStatus" class="upload-status"></div>
+    </div>
+
+    <div class="input-panel" id="panel-image">
+      <div class="dropzone" id="imgzone">
+        <p><b>Upload a photo/screenshot of a tender page</b> (PNG, JPG)</p>
+        <p class="mut">Runs entirely in your browser: text regions are detected and characters matched by template — no internet, no cloud OCR. Clear, large text works best.</p>
+        <input type="file" id="imgInput" accept="image/*" hidden />
+      </div>
+      <canvas id="ocrCanvas" class="hidden"></canvas>
+      <div id="imgStatus" class="upload-status"></div>
+    </div>
+
+    <div class="input-panel" id="panel-voice">
+      <div class="voice-box">
+        <div class="chip-row" style="justify-content:center;margin-bottom:10px">
+          <button class="chip active-lang" id="langHi" onclick="setVoiceLang('hi-IN')">हिन्दी</button>
+          <button class="chip" id="langEn" onclick="setVoiceLang('en-IN')">English</button>
+        </div>
+        <button class="btn primary" id="micBtn">🎙️ Start listening</button>
+        <p class="mut" id="voiceStatus">Hindi (हिन्दी) selected — speak clearly after clicking Start. Chrome/Edge recommended.</p>
+      </div>
+      <textarea id="voiceText" rows="4" placeholder="Spoken text will appear here — edit if needed, then Analyze."></textarea>
+    </div>
+
+    <div class="action-row">
+      <button class="btn primary" id="analyzeBtn" onclick="runAnalysis()">⚡ Analyze Specification</button>
+      <span class="hint" id="elapsed"></span>
+    </div>
+  </section>
+
+  <section id="results" class="hidden results-grid">
+    <section class="card health-card">
+      <div class="health-left">
+        <div class="score-ring"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" class="ring-bg"/><circle cx="60" cy="60" r="52" class="ring-fg" id="scoreRing"/></svg><div class="score-num" id="scoreNum">0</div></div>
+        <div>
+          <h3>Specification Health Score</h3>
+          <p id="healthVerdict">—</p>
+          <div class="chip-row" id="quickChips"></div>
+        </div>
+      </div>
+      <div class="health-right">
+        <div class="mini-metric"><b id="mPrim">0/0</b><span>primary cited</span></div>
+        <div class="mini-metric"><b id="mAllied">0/0</b><span>allied cited</span></div>
+        <div class="mini-metric"><b id="mGaps">0</b><span>gaps found</span></div>
+        <div class="mini-metric"><b id="mMs">0</b><span>ms analysis</span></div>
+      </div>
+    </section>
+
+    <div class="duo">
+      <section class="card">
+        <h3>🎯 Recommended Standards <span class="badge">semantic</span></h3>
+        <div id="recList" class="rec-list"></div>
+      </section>
+      <section class="card">
+        <h3>📅 Version &amp; Amendment Compliance</h3>
+        <div id="verList" class="ver-list"></div>
+        <p class="empty" id="verEmpty">No explicit edition citations found — always cite IS codes with year (e.g. IS 1786:2008).</p>
+      </section>
+      <section class="card">
+        <h3>🛡️ Mandatory Certification Mapping</h3>
+        <div id="certList" class="cert-list"></div>
+      </section>
+      <section class="card">
+        <h3>🧩 Coverage &amp; Missing Standards</h3>
+        <div id="gapList" class="gap-list"></div>
+        <p class="empty" id="gapEmpty">No gaps — the specification covers expected allied standards.</p>
+      </section>
+    </div>
+
+    <div class="action-row">
+      <button class="btn primary" onclick="go('map', 'expand graph for the latest analysis')">🕸️ Open Standards Map</button>
+      <button class="btn" onclick="go('assistant')">💬 Ask the Assistant why</button>
+      <button class="btn" onclick="go('report')">📄 Generate Assessment Report</button>
+    </div>
+  </section>
+</main>
+
+<!-- ================= VIEW: MAP ================= -->
+<main id="view-map" class="view">
+  <section class="card">
+    <h3>🕸️ Normative Reference Graph <span class="badge">the differentiator</span></h3>
+    <p class="card-sub">Allied standards surfaced by traversing each primary standard's normative references — test methods · terminology · safety · installation. Click a node to ask the assistant why it appears. Drag to pan, scroll to zoom.</p>
+    <div id="graphWrap">
+      <canvas id="graphCanvas" width="1100" height="560"></canvas>
+      <div id="graphTip" class="graph-tip hidden"></div>
+    </div>
+    <div class="legend">
+      <span><i class="lg lg-primary"></i>Primary</span>
+      <span><i class="lg lg-test"></i>Test Method</span>
+      <span><i class="lg lg-term"></i>Terminology</span>
+      <span><i class="lg lg-safety"></i>Safety</span>
+      <span><i class="lg lg-cop"></i>Code of Practice / Installation</span>
+      <span><i class="lg lg-prod"></i>Product / Specification</span>
+      <span><i class="lg lg-mand"></i>Mandatory certification</span>
+    </div>
+  </section>
+</main>
+
+<!-- ================= VIEW: ASSISTANT ================= -->
+<main id="view-assistant" class="view">
+  <section class="card chat-card">
+    <h3>💬 Explainable Assistant <span class="badge">answers with citations · honest refusals</span></h3>
+    <div id="chatLog" class="chat-log">
+      <div class="msg bot">Run an <b>Analyze</b> first, then ask me anything: <i>"Why is IS 1786 recommended?"</i>, <i>"certification requirements"</i>, <i>"what is missing"</i>, <i>"latest version of IS 694"</i>, <i>"labs for testing"</i>.</div>
+    </div>
+    <div class="chat-input-row">
+      <input id="chatInput" type="text" placeholder="Ask: why / certification / labs / missing / latest version…" onkeydown="if(event.key==='Enter')sendChat()" />
+      <button class="btn primary small" onclick="sendChat()">Ask</button>
+    </div>
+    <div class="chip-row" id="chatChips">
+      <button class="chip" onclick="askChip('Why is IS 1786 recommended?')">Why IS 1786?</button>
+      <button class="chip" onclick="askChip('What are the certification requirements?')">Certifications</button>
+      <button class="chip" onclick="askChip('What is missing from my specification?')">What's missing?</button>
+      <button class="chip" onclick="askChip('Which labs can test these?')">Labs</button>
+      <button class="chip" onclick="askChip('Latest version of IS 694?')">Latest IS 694</button>
+    </div>
+  </section>
+</main>
+
+<!-- ================= VIEW: LIBRARY ================= -->
+<main id="view-library" class="view">
+  <section class="card">
+    <h3>📚 Standards Library <span class="badge" id="libCount"></span></h3>
+    <div class="lib-controls">
+      <input id="libSearch" type="text" placeholder="Search by number, title, keyword… (supports हिन्दी too)" oninput="renderLibrary()" />
+      <select id="libCat" onchange="renderLibrary()"><option value="">All categories</option></select>
+      <select id="libKind" onchange="renderLibrary()">
+        <option value="">All types</option>
+        <option>Product / Specification</option>
+        <option>Test Method</option>
+        <option>Terminology</option>
+        <option>Safety</option>
+        <option>Code of Practice / Installation</option>
+      </select>
+    </div>
+    <div id="libList" class="lib-list"></div>
+  </section>
+</main>
+
+<!-- ================= VIEW: REPORT ================= -->
+<main id="view-report" class="view">
+  <section class="card">
+    <h3>📄 Specification Assessment Report</h3>
+    <p class="card-sub">A printable, tender-file-ready summary of the latest analysis — health score, recommendations, version compliance, mandatory certifications and gaps. Print → Save as PDF for procurement files.</p>
+    <div id="reportPreview" class="report-preview">Run an analysis first, then this tab renders the official assessment report.</div>
+    <div class="action-row">
+      <button class="btn primary" id="reportBtn" onclick="loadReport()">Generate / Refresh</button>
+      <button class="btn" onclick="window.open('/api/report','_blank')">Open printable page ↗</button>
+    </div>
+  </section>
+</main>
+
+<footer>
+  POLARIS · built by Team ATLAS · Smart India Hackathon 2026 · PS SIH26108 (Dept. of Consumer Affairs / BIS) · Curated demo corpus — verify live status on services.bis.gov.in
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
