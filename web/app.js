@@ -74,10 +74,10 @@ function currentInputText() {
   try {
     await api("/api/health");
     $("healthDot").classList.add("ok");
-    $("healthText").textContent = "POLARIS engine online";
+    $("healthText").textContent = "Ready";
   } catch (e) {
     $("healthDot").classList.add("err");
-    $("healthText").textContent = "Backend unreachable — run: python server.py";
+    $("healthText").textContent = "Server offline — run: python server.py";
   }
 })();
 
@@ -98,20 +98,20 @@ let LAST = null;
 
 async function runAnalysis() {
   const text = currentInputText();
-  if (!text) { toast("Paste, upload, snap or speak a specification first."); return; }
+  if (!text) { toast("Add a specification first — type, upload, photo or voice."); return; }
   const btn = $("analyzeBtn");
-  btn.disabled = true; btn.textContent = "Analyzing…";
+  btn.disabled = true; btn.textContent = "⏳ Analyzing…";
   try {
     LAST = await api("/api/recommend", { text });
     renderAll(LAST);
     $("results").classList.remove("hidden");
     $("elapsed").textContent = "Analyzed in " + LAST.elapsed_ms + " ms";
     $("results").scrollIntoView({ behavior: "smooth", block: "start" });
-    toast("Done — open the Standards Map or Report next.");
+    toast("Analysis complete — check the Standards Map or generate a Report.");
   } catch (e) {
     toast("Analysis failed: " + e.message);
   } finally {
-    btn.disabled = false; btn.textContent = "Analyze Specification";
+    btn.disabled = false; btn.textContent = "⚡ Analyze Specification";
   }
 }
 
@@ -128,7 +128,7 @@ function renderHealth(a) {
   const s = a.spec_health;
   const C = 326.7;
   $("scoreRing").style.strokeDashoffset = C * (1 - s.score / 100);
-  $("scoreRing").style.stroke = s.score >= 85 ? "#4cc38a" : s.score >= 60 ? "#d9a441" : "#d4553a";
+  $("scoreRing").style.stroke = s.score >= 85 ? "#2fd28a" : s.score >= 60 ? "#ffb454" : "#ff6b6b";
   animateNum($("scoreNum"), s.score);
   $("healthVerdict").textContent = s.verdict;
   const d = s.detail;
@@ -165,7 +165,7 @@ function renderRecs(a) {
         <div class="meta">${esc(r.category)} · ${esc(r.kind)}${r.via ? " · " + esc(r.via) : ""}</div>
       </div>
       <span class="score-pill">${(r.score * 100).toFixed(0)}%</span>
-    </div>`).join("") || '<p class="empty">No strong match — add product keywords (material, use).</p>';
+    </div>`).join("") || '<p class="empty">No standards matched — try adding more specific material or product keywords.</p>';
 }
 
 function renderVersions(a) {
@@ -219,7 +219,7 @@ $("fileInput").addEventListener("change", (e) => {
 
 async function uploadFile(file) {
   const st = $("uploadStatus");
-  st.innerHTML = "⏳ Extracting text from <b>" + esc(file.name) + "</b>… (large tenders take a moment)";
+  st.innerHTML = "⏳ Extracting text from <b>" + esc(file.name) + "</b>… (this may take a moment for large files)";
   try {
     const fd = new FormData();
     fd.append("file", file);
@@ -230,12 +230,12 @@ async function uploadFile(file) {
     let msg = "✅ Extracted <b>" + r.chars + "</b> characters from " + esc(file.name);
     if (r.truncated) {
       msg += " — document is " + r.full_chars.toLocaleString() + " chars; " +
-             "<b>auto-focused on the specification sections</b> (densest IS/spec content) for best matching.";
+             "<b>auto-focused on the key specification sections for best results.";
     }
-    msg += " Review below, then press <b>Analyze</b>.";
+    msg += " Review the text below, then hit <b>Analyze</b>.";
     st.innerHTML = msg;
     document.querySelector('.input-tab[data-input="type"]').click();
-    toast("File text loaded — press Analyze.");
+    toast("File loaded — hit Analyze when ready.");
   } catch (e) {
     st.innerHTML = "❌ " + esc(e.message);
   }
@@ -436,14 +436,14 @@ function ocrFile(file) {
         const text = OCR.recognize(img);
         const ms = Math.round(performance.now() - t0);
         if (!text.trim()) {
-          st.innerHTML = "❌ No readable text found. Try a sharper, larger photo of printed text.";
+          st.innerHTML = "❌ No text found. Try a clearer, higher-resolution photo of printed text.";
           return;
         }
         $("inputText").value = text;
         st.innerHTML = "✅ OCR done in " + ms + " ms — <b>" + text.length + "</b> characters recognized. " +
-          "Review/fix the text below (template OCR is approximate), then press <b>Analyze</b>.";
+          "Check the text below and fix anything that looks off, then hit <b>Analyze</b>.";
         document.querySelector('.input-tab[data-input="type"]').click();
-        toast("OCR complete — review and Analyze.");
+        toast("OCR done — check the text below and hit Analyze.");
       } catch (err) {
         st.innerHTML = "❌ OCR failed: " + esc(err.message);
       }
@@ -466,12 +466,12 @@ function ocrFile(file) {
     $("langHi").classList.toggle("active-lang", code === "hi-IN");
     $("langEn").classList.toggle("active-lang", code === "en-IN");
     $("voiceStatus").textContent = (code === "hi-IN" ? "Hindi (हिन्दी)" : "English") +
-      " selected — speak clearly after clicking Start.";
+      " selected — speak after clicking Start.";
   };
   let VOICE_LANG = "hi-IN";
   if (!SR) {
     btn.disabled = true;
-    btn.textContent = "Not supported in this browser";
+    btn.textContent = "🎙️ Not supported in this browser";
     $("voiceStatus").textContent = "Voice needs Chrome or Edge (Web Speech API). Other input modes work everywhere.";
     return;
   }
@@ -482,13 +482,13 @@ function ocrFile(file) {
     rec.lang = VOICE_LANG;
     rec.interimResults = false;
     rec.continuous = true;
-    rec.onstart = () => { listening = true; btn.textContent = "● Listening… (click to stop)"; };
+    rec.onstart = () => { listening = true; btn.textContent = "🔴 Listening… (click to stop)"; };
     rec.onerror = (ev) => {
       $("voiceStatus").textContent = "Mic error: " + ev.error +
         (ev.error === "not-allowed" ? " — allow microphone access and retry." : ".");
-      listening = false; btn.textContent = "Start listening";
+      listening = false; btn.textContent = "🎙️ Start listening";
     };
-    rec.onend = () => { listening = false; btn.textContent = "Start listening"; };
+    rec.onend = () => { listening = false; btn.textContent = "🎙️ Start listening"; };
     rec.onresult = (ev) => {
       for (let i = ev.resultIndex; i < ev.results.length; i++) {
         if (ev.results[i].isFinal) {
@@ -497,7 +497,7 @@ function ocrFile(file) {
         }
       }
     };
-    try { rec.start(); $("voiceStatus").textContent = "Listening in हिन्दी… speak now."; }
+    try { rec.start(); $("voiceStatus").textContent = "Listening in हिन्दी — go ahead and speak."; }
     catch (e) { $("voiceStatus").textContent = "Could not start: " + e.message; }
   });
 })();
@@ -517,7 +517,7 @@ function askChip(q) { go("assistant"); $("chatInput").value = q; sendChat(); }
 async function askStream(q) {
   const log = $("chatLog");
   log.insertAdjacentHTML("beforeend", `<div class="msg user">${esc(q)}</div>`);
-  log.insertAdjacentHTML("beforeend", '<div class="msg bot" id="chatWait">Thinking…</div>');
+  log.insertAdjacentHTML("beforeend", '<div class="msg bot" id="chatWait">On it…</div>');
   log.scrollTop = log.scrollHeight;
   try {
     const r = await api("/api/chat", { question: q });
@@ -592,9 +592,9 @@ function libFind(code) {
    REPORT VIEW
    ============================================================ */
 async function loadReport() {
-  if (!LAST) { toast("Run an analysis first."); return; }
+  if (!LAST) { toast("Run an analysis first, then come back here."); return; }
   const prev = $("reportPreview");
-  prev.innerHTML = "<p class='empty'>Building report…</p>";
+  prev.innerHTML = "<p class='empty'>Generating your report…</p>";
   try {
     const [repRaw, exp] = await Promise.all([
       fetch("/api/report").then((r) => r.text()),
@@ -619,7 +619,7 @@ async function loadReport() {
 }
 async function copyExport() {
   const txt = $("exportPre") ? $("exportPre").textContent : "";
-  if (!txt) { toast("Nothing to copy yet."); return; }
+  if (!txt) { toast("Nothing to copy — generate a report first."); return; }
   try { await navigator.clipboard.writeText(txt); toast("Copied to clipboard ✓"); }
   catch (e) {
     const ta = document.createElement("textarea");
@@ -640,11 +640,11 @@ const Graph = (() => {
   let drag = null, hovered = null;
 
   const COLORS = {
-    "Product / Specification": "#6f87ad",
-    "Test Method": "#46b581",
-    "Terminology": "#8f7fd0",
-    "Safety": "#d4553a",
-    "Code of Practice / Installation": "#c9a35c",
+    "Product / Specification": "#6c8dbd",
+    "Test Method": "#16a34a",
+    "Terminology": "#7c3aed",
+    "Safety": "#dc2626",
+    "Code of Practice / Installation": "#d97706",
   };
 
   function resize() {
@@ -735,7 +735,7 @@ const Graph = (() => {
       ctx.beginPath();
       ctx.moveTo(a.x, a.y);
       ctx.quadraticCurveTo(cx, cy, b.x, b.y);
-      ctx.strokeStyle = hot ? "rgba(201,163,92,.9)" : "rgba(157,185,232,.28)";
+      ctx.strokeStyle = hot ? "rgba(37,99,235,.85)" : "rgba(100,120,180,.2)";
       ctx.lineWidth = hot ? 2.2 : 1.2;
       ctx.stroke();
       const ang = Math.atan2(b.y - cy, b.x - cx);
@@ -746,7 +746,7 @@ const Graph = (() => {
       ctx.lineTo(ax - 8 * Math.cos(ang - 0.4), ay - 8 * Math.sin(ang - 0.4));
       ctx.lineTo(ax - 8 * Math.cos(ang + 0.4), ay - 8 * Math.sin(ang + 0.4));
       ctx.closePath();
-      ctx.fillStyle = "rgba(157,185,232,.55)";
+      ctx.fillStyle = "rgba(100,120,180,.55)";
       ctx.fill();
     });
     nodes.forEach((n) => {
@@ -754,24 +754,24 @@ const Graph = (() => {
       const color = COLORS[n.kind] || "#6c8dbd";
       ctx.beginPath();
       ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
-      ctx.fillStyle = n.depth === 0 ? "#9db9e8" : color;
+      ctx.fillStyle = n.depth === 0 ? "#2563eb" : color;
       ctx.globalAlpha = hovered && hovered !== n ? 0.35 : 1;
       ctx.fill();
       if (n.cert_mandatory) {
         ctx.beginPath();
         ctx.arc(n.x, n.y, r + 4, 0, Math.PI * 2);
-        ctx.strokeStyle = "#d4553a"; ctx.lineWidth = 2.2; ctx.setLineDash([4, 3]);
+        ctx.strokeStyle = "#dc2626"; ctx.lineWidth = 2.2; ctx.setLineDash([4, 3]);
         ctx.stroke(); ctx.setLineDash([]);
       }
       if (hovered === n) {
         ctx.beginPath();
         ctx.arc(n.x, n.y, r + 6, 0, Math.PI * 2);
-        ctx.strokeStyle = "#f2efe6"; ctx.lineWidth = 1.5; ctx.stroke();
+        ctx.strokeStyle = "#1a2340"; ctx.lineWidth = 1.5; ctx.stroke();
       }
       ctx.globalAlpha = 1;
-      ctx.font = "bold 11px Consolas, monospace";
+      ctx.font = "600 11px IBM Plex Mono, monospace";
       ctx.textAlign = "center";
-      ctx.fillStyle = n.depth === 0 ? "#f2efe6" : "#9aa3b2";
+      ctx.fillStyle = n.depth === 0 ? "#fff" : "#1e293b";
       ctx.fillText(n.code, n.x, n.y + r + 14);
     });
     ctx.restore();
@@ -797,9 +797,9 @@ const Graph = (() => {
   function showTip(n, ev) {
     const wrapRect = $("graphWrap").getBoundingClientRect();
     tip.innerHTML = `<b>${esc(n.code)}</b><br>${esc(n.title)}<br>
-      <span style="color:#8b93a3">${esc(n.kind)} · Ed ${n.edition} · ${n.amendments.length} amendments</span><br>
-      <span style="color:${n.cert_mandatory ? "#d4553a" : "#8b93a3"}">${esc(n.cert_scheme)}</span>
-      <br><i style="color:#c9a35c;font-size:.7rem">click node → ask the assistant why</i>`;
+      <span style="color:#8fa3c4">${esc(n.kind)} · Ed ${n.edition} · ${n.amendments.length} amendments</span><br>
+      <span style="color:${n.cert_mandatory ? "#ff6b6b" : "#8fa3c4"}">${esc(n.cert_scheme)}</span>
+      <br><i style="color:#4da3ff;font-size:.7rem">click node → ask the assistant why</i>`;
     tip.classList.remove("hidden");
     const x = ev.clientX - wrapRect.left + 14, y = ev.clientY - wrapRect.top + 14;
     tip.style.left = Math.min(x, wrapRect.width - 330) + "px";

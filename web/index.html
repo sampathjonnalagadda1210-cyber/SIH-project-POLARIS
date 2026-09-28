@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>POLARIS — AI Standards Recommendation Engine for Procurement | SIH26108</title>
-<meta name="description" content="POLARIS: AI-powered recommendation engine that maps tender specifications to applicable Indian Standards, allied normative references, current versions and mandatory certifications. Built by Team ATLAS." />
+<title>POLARIS — Indian Standards Finder for Procurement | SIH26108</title>
+<meta name="description" content="POLARIS: Find the right Indian Standards for any tender specification. Built by Team ATLAS for SIH 2026." />
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
 <header class="topbar">
   <div class="brand">
-    <div class="brand-logo" title="POLARIS — the star you navigate by">✦</div>
+    <div class="brand-logo">A</div>
     <div>
       <h1>POLARIS</h1>
       <p><b>P</b>rocurement-<b>O</b>riented <b>L</b>isting of <b>A</b>pplicable <b>R</b>eferences in <b>I</b>ndian <b>S</b>tandards · <span class="ps-tag">Team ATLAS · SIH 2026 · PS SIH26108</span></p>
@@ -24,30 +24,29 @@
 </header>
 
 <nav class="tabs" id="tabs">
-  <button class="tab active" data-view="analyze"><span class="no">01</span>Analyze</button>
-  <button class="tab" data-view="map"><span class="no">02</span>Standards Map</button>
-  <button class="tab" data-view="assistant"><span class="no">03</span>Assistant</button>
-  <button class="tab" data-view="library"><span class="no">04</span>Standards Library</button>
-  <button class="tab" data-view="report"><span class="no">05</span>Assessment Report</button>
+  <button class="tab active" data-view="analyze">⚖️ Analyze</button>
+  <button class="tab" data-view="map">🕸️ Standards Map</button>
+  <button class="tab" data-view="assistant">💬 Assistant</button>
+  <button class="tab" data-view="library">📚 Standards Library</button>
+  <button class="tab" data-view="report">📄 Assessment Report</button>
 </nav>
 
 <!-- ================= VIEW: ANALYZE ================= -->
 <main id="view-analyze" class="view active">
   <section class="hero">
-    <div class="overline">PS SIH26108 · Dept. of Consumer Affairs / BIS</div>
-    <h2>Paste, type or upload a specification.<br/>Get the <em>right</em> Indian Standards — semantically.</h2>
+    <h2>Drop in your specification.<br/>Get the <em>right</em> Indian Standards — instantly.</h2>
     <div class="lang-row">
-      <span class="lang-chip">English · हिन्दी (Devanagari) · Hinglish</span>
+      <span class="lang-chip">🌐 English · हिन्दी · Hinglish</span>
       <button class="btn ghost small" onclick="fillDemo(0)">Demo: Tender (EN)</button>
       <button class="btn ghost small" onclick="fillDemo(1)">Demo: हिन्दी</button>
       <button class="btn ghost small" onclick="fillDemo(2)">Demo: Outdated citations</button>
     </div>
 
     <div class="input-tabs">
-      <button class="input-tab active" data-input="type">Type / Paste</button>
-      <button class="input-tab" data-input="upload">Upload document</button>
-      <button class="input-tab" data-input="image">Image / photo of document</button>
-      <button class="input-tab" data-input="voice">Speak (voice)</button>
+      <button class="input-tab active" data-input="type">⌨️ Type / Paste</button>
+      <button class="input-tab" data-input="upload">📎 Upload document</button>
+      <button class="input-tab" data-input="image">🖼️ Photo of document</button>
+      <button class="input-tab" data-input="voice">🎙️ Voice</button>
     </div>
 
     <div class="input-panel active" id="panel-type">
@@ -57,8 +56,8 @@
 
     <div class="input-panel" id="panel-upload">
       <div class="dropzone" id="dropzone">
-        <p><b>Drop a .txt or .pdf tender file here</b> or click to browse</p>
-        <p class="mut">Real PDFs are parsed in-browser-free: text-based PDFs are extracted on the server with zero dependencies. Scanned PDFs → use the Image tab.</p>
+        <p><b>Drop a .txt or .pdf tender here</b> or click to browse</p>
+        <p class="mut">Text-based PDFs are extracted on the server. Scanned PDFs? Use the Photo tab instead.</p>
         <input type="file" id="fileInput" accept=".txt,.md,.pdf" hidden />
       </div>
       <div id="uploadStatus" class="upload-status"></div>
@@ -66,8 +65,8 @@
 
     <div class="input-panel" id="panel-image">
       <div class="dropzone" id="imgzone">
-        <p><b>Upload a photo/screenshot of a tender page</b> (PNG, JPG)</p>
-        <p class="mut">Runs entirely in your browser: text regions are detected and characters matched by template — no internet, no cloud OCR. Clear, large text works best.</p>
+        <p><b>Upload a photo or screenshot of a tender page</b> (PNG, JPG)</p>
+        <p class="mut">OCR runs entirely in your browser — nothing is sent to any server. Works best with clear, printed text.</p>
         <input type="file" id="imgInput" accept="image/*" hidden />
       </div>
       <canvas id="ocrCanvas" class="hidden"></canvas>
@@ -80,14 +79,14 @@
           <button class="chip active-lang" id="langHi" onclick="setVoiceLang('hi-IN')">हिन्दी</button>
           <button class="chip" id="langEn" onclick="setVoiceLang('en-IN')">English</button>
         </div>
-        <button class="btn primary" id="micBtn">Start listening</button>
-        <p class="mut" id="voiceStatus">Hindi (हिन्दी) selected — speak clearly after clicking Start. Chrome/Edge recommended.</p>
+        <button class="btn primary" id="micBtn">🎙️ Start listening</button>
+        <p class="mut" id="voiceStatus">Hindi selected — speak clearly after clicking Start. Works on Chrome and Edge.</p>
       </div>
-      <textarea id="voiceText" rows="4" placeholder="Spoken text will appear here — edit if needed, then Analyze."></textarea>
+      <textarea id="voiceText" rows="4" placeholder="Your speech will show up here. Edit if needed, then hit Analyze."></textarea>
     </div>
 
     <div class="action-row">
-      <button class="btn primary" id="analyzeBtn" onclick="runAnalysis()">Analyze Specification</button>
+      <button class="btn primary" id="analyzeBtn" onclick="runAnalysis()">⚡ Analyze Specification</button>
       <span class="hint" id="elapsed"></span>
     </div>
   </section>
@@ -112,29 +111,29 @@
 
     <div class="duo">
       <section class="card">
-        <h3>Recommended Standards <span class="badge">semantic</span></h3>
+        <h3>🎯 Recommended Standards <span class="badge">semantic match</span></h3>
         <div id="recList" class="rec-list"></div>
       </section>
       <section class="card">
-        <h3>Version &amp; Amendment Compliance</h3>
+        <h3>📅 Version & Amendment Check</h3>
         <div id="verList" class="ver-list"></div>
-        <p class="empty" id="verEmpty">No explicit edition citations found — always cite IS codes with year (e.g. IS 1786:2008).</p>
+        <p class="empty" id="verEmpty">No edition citations found — always include the year when citing IS codes (e.g. IS 1786:2008).</p>
       </section>
       <section class="card">
-        <h3>Mandatory Certification Mapping</h3>
+        <h3>🛡️ Mandatory Certifications</h3>
         <div id="certList" class="cert-list"></div>
       </section>
       <section class="card">
-        <h3>Coverage &amp; Missing Standards</h3>
+        <h3>🧩 Missing Standards</h3>
         <div id="gapList" class="gap-list"></div>
-        <p class="empty" id="gapEmpty">No gaps — the specification covers expected allied standards.</p>
+        <p class="empty" id="gapEmpty">No gaps — your specification covers the expected allied standards.</p>
       </section>
     </div>
 
     <div class="action-row">
-      <button class="btn primary" onclick="go('map', 'expand graph for the latest analysis')">Open Standards Map</button>
-      <button class="btn" onclick="go('assistant')">Ask the Assistant why</button>
-      <button class="btn" onclick="go('report')">Generate Assessment Report</button>
+      <button class="btn primary" onclick="go('map', 'expand graph for the latest analysis')">🕸️ View Standards Map</button>
+      <button class="btn" onclick="go('assistant')">💬 Ask the Assistant</button>
+      <button class="btn" onclick="go('report')">📄 Generate Report</button>
     </div>
   </section>
 </main>
@@ -142,8 +141,8 @@
 <!-- ================= VIEW: MAP ================= -->
 <main id="view-map" class="view">
   <section class="card">
-    <h3>Normative Reference Graph <span class="badge">the differentiator</span></h3>
-    <p class="card-sub">Allied standards surfaced by traversing each primary standard's normative references — test methods · terminology · safety · installation. Click a node to ask the assistant why it appears. Drag to pan, scroll to zoom.</p>
+    <h3>🕸️ Standards Graph <span class="badge">full picture</span></h3>
+    <p class="card-sub">Shows every standard your specification touches — including test methods, safety codes and terminology standards linked through normative references. Click any node to ask the Assistant about it. Drag to pan, scroll to zoom.</p>
     <div id="graphWrap">
       <canvas id="graphCanvas" width="1100" height="560"></canvas>
       <div id="graphTip" class="graph-tip hidden"></div>
@@ -153,7 +152,7 @@
       <span><i class="lg lg-test"></i>Test Method</span>
       <span><i class="lg lg-term"></i>Terminology</span>
       <span><i class="lg lg-safety"></i>Safety</span>
-      <span><i class="lg lg-cop"></i>Code of Practice / Installation</span>
+      <span><i class="lg lg-cop"></i>Code of Practice</span>
       <span><i class="lg lg-prod"></i>Product / Specification</span>
       <span><i class="lg lg-mand"></i>Mandatory certification</span>
     </div>
@@ -163,19 +162,19 @@
 <!-- ================= VIEW: ASSISTANT ================= -->
 <main id="view-assistant" class="view">
   <section class="card chat-card">
-    <h3>Explainable Assistant <span class="badge">answers with citations · honest refusals</span></h3>
+    <h3>💬 Ask POLARIS <span class="badge">cited answers · no guessing</span></h3>
     <div id="chatLog" class="chat-log">
-      <div class="msg bot">Run an <b>Analyze</b> first, then ask me anything: <i>"Why is IS 1786 recommended?"</i>, <i>"certification requirements"</i>, <i>"what is missing"</i>, <i>"latest version of IS 694"</i>, <i>"labs for testing"</i>.</div>
+      <div class="msg bot">Run an <b>Analyze</b> first, then ask me anything — <i>"Why is IS 1786 recommended?"</i>, <i>"What's missing from my spec?"</i>, <i>"What certifications do I need?"</i>, <i>"Latest version of IS 694?"</i></div>
     </div>
     <div class="chat-input-row">
-      <input id="chatInput" type="text" placeholder="Ask: why / certification / labs / missing / latest version…" onkeydown="if(event.key==='Enter')sendChat()" />
+      <input id="chatInput" type="text" placeholder="Ask anything about your specification…" onkeydown="if(event.key==='Enter')sendChat()" />
       <button class="btn primary small" onclick="sendChat()">Ask</button>
     </div>
     <div class="chip-row" id="chatChips">
       <button class="chip" onclick="askChip('Why is IS 1786 recommended?')">Why IS 1786?</button>
       <button class="chip" onclick="askChip('What are the certification requirements?')">Certifications</button>
-      <button class="chip" onclick="askChip('What is missing from my specification?')">What's missing?</button>
-      <button class="chip" onclick="askChip('Which labs can test these?')">Labs</button>
+      <button class="chip" onclick="askChip('What is missing from my specification?')">What\'s missing?</button>
+      <button class="chip" onclick="askChip('Which labs can test these?')">Testing labs</button>
       <button class="chip" onclick="askChip('Latest version of IS 694?')">Latest IS 694</button>
     </div>
   </section>
@@ -184,9 +183,9 @@
 <!-- ================= VIEW: LIBRARY ================= -->
 <main id="view-library" class="view">
   <section class="card">
-    <h3>Standards Library <span class="badge" id="libCount"></span></h3>
+    <h3>📚 Standards Library <span class="badge" id="libCount"></span></h3>
     <div class="lib-controls">
-      <input id="libSearch" type="text" placeholder="Search by number, title, keyword… (supports हिन्दी too)" oninput="renderLibrary()" />
+      <input id="libSearch" type="text" placeholder="Search by code, title or keyword… (हिन्दी supported)" oninput="renderLibrary()" />
       <select id="libCat" onchange="renderLibrary()"><option value="">All categories</option></select>
       <select id="libKind" onchange="renderLibrary()">
         <option value="">All types</option>
@@ -204,9 +203,9 @@
 <!-- ================= VIEW: REPORT ================= -->
 <main id="view-report" class="view">
   <section class="card">
-    <h3>Specification Assessment Report</h3>
-    <p class="card-sub">A printable, tender-file-ready summary of the latest analysis — health score, recommendations, version compliance, mandatory certifications and gaps. Print → Save as PDF for procurement files.</p>
-    <div id="reportPreview" class="report-preview">Run an analysis first, then this tab renders the official assessment report.</div>
+    <h3>📄 Assessment Report</h3>
+    <p class="card-sub">A full summary of your analysis — health score, recommended standards, version compliance, certifications and gaps. Print it or save as PDF for your procurement records.</p>
+    <div id="reportPreview" class="report-preview">Run an analysis first, then come back here to generate the report.</div>
     <div class="action-row">
       <button class="btn primary" id="reportBtn" onclick="loadReport()">Generate / Refresh</button>
       <button class="btn" onclick="window.open('/api/report','_blank')">Open printable page ↗</button>
@@ -215,7 +214,7 @@
 </main>
 
 <footer>
-  POLARIS · built by Team ATLAS · Smart India Hackathon 2026 · PS SIH26108 (Dept. of Consumer Affairs / BIS) · Curated demo corpus — verify live status on services.bis.gov.in
+  POLARIS · Team ATLAS · Smart India Hackathon 2026 · PS SIH26108 (Dept. of Consumer Affairs / BIS) · Demo corpus — verify live status at services.bis.gov.in
 </footer>
 
 <script src="app.js"></script>
